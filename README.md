@@ -4,7 +4,7 @@ Simple Finite State Machine for UART control.
 
 ## Description
 
-A C++, Python, C program that simulates a finite state machine (FSM) with 4 states to control UART communication.
+C++, Python, C programs that simulates a finite state machine (FSM) with 4 states to control UART communication.
 
 ![FSM State Diagram](fsm.png)
 
