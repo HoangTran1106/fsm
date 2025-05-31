@@ -1,40 +1,49 @@
-# FSM UART Controller
+# Try out python, c, c++ code with FSM UART 
 
-Dự án đầu tay cho intern - Finite State Machine điều khiển UART đơn giản.
+Simple Finite State Machine for UART control.
 
-## Mô tả
+## Description
 
-Chương trình C++ mô phỏng máy trạng thái hữu hạn (FSM) với 4 trạng thái để điều khiển giao tiếp UART.
+A C++, Python, C program that simulates a finite state machine (FSM) with 4 states to control UART communication.
 
 ![FSM State Diagram](fsm.png)
 
-## Các trạng thái
+## States
 
-- **IDLE**: Trạng thái chờ (start=0, load=0, doit=0)
-- **START**: Bắt đầu truyền (start=1, load=0, doit=1)  
-- **COUNT**: Đếm dữ liệu (start=0, load=1, doit=0)
-- **WAIT**: Chờ buffer (start=0, load=0, doit=1)
+- **IDLE**: Waiting state (start=0, load=0, doit=0)
+- **START**: Begin transmission (start=1, load=0, doit=1)  
+- **COUNT**: Data counting (start=0, load=1, doit=0)
+- **WAIT**: Buffer waiting (start=0, load=0, doit=1)
 
 ## Input/Output
 
-**Input:**
-- Rx: Tín hiệu nhận (0/1)
-- BTU: Buffer timeout (0/1)
-- BCU: Buffer clear (0/1)
+**Inputs:**
+- Rx, BTU, BCU
+**Outputs:**
+- start, load, doit: Control signals
 
-**Output:**
-- start, load, doit: Tín hiệu điều khiển
+## Usage
 
-## Cách dùng
-
+C++
 ```bash
-g++ -std=c++11 -o fsm fsm.cpp
-./fsm
+g++ -o main.cpp main.out
+./main.out
 ```
 
-Chương trình sẽ chạy ở chế độ debug, nhập giá trị cho Rx, BTU, BCU để xem FSM chuyển trạng thái.
+Python 
+```
+python main.py 
+```
 
-## Ví dụ
+C 
+```
+gcc -o main.c main.out
+./main.out
+```
+
+Program runs in debug mode - enter values for Rx, BTU, BCU to see FSM state transitions.
+
+## Example
 
 ```
 Rx: 0
@@ -43,11 +52,14 @@ BCU: 0
 Current state: WAIT
 ```
 
-## Tính năng
+## Features
 
-- Chế độ debug tương tác
-- 8 test case tự động
-- Hiển thị trạng thái real-time
-- Logic FSM đơn giản, dễ hiểu
+- Interactive debug mode
+- 8 automatic test cases
+- Real-time state display
+- Simple FSM logic, easy to understand
 
-Dự án phù hợp để học về state machine và C++ cơ bản.
+Perfect project for learning state machines and basic C++.
+
+#### Run all 3 versions on Power Shell
+.\test.bat

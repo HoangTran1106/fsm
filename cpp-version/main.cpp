@@ -90,16 +90,10 @@ int main () {
     bool load = 0;
     bool doit = 1;
 
-    // for (int i = 0; i <= 7; i++) {
-    //     tc = static_cast<test_case>(i);
-    //     extractBits(tc, Rx, BTU, BCU);
-    //     std::cout << "Rx: " << Rx << ", BTU: " << BTU << ", BCU: " << BCU << std::endl;
-    //     fsm(state, tc, Rx, BTU, BCU, start, load, doit);
-    // }
-
     // // // Debug code
     state = STATE::START;
     std::cout << "\n-------- RERUN IN DEBUG PHASE -------- \n";
+    std::cout << "Starting state: " << stateToString(state) << std::endl; 
     while (true) {
         std::cout << "Rx: ";
         if (!(std::cin >> Rx)) break;

@@ -67,13 +67,8 @@ def main():
     Rx, BTU, BCU = False, False, False
     start, load, doit = True, False, True
 
-    for i in range(8):
-        tc = TestCase(i)
-        Rx, BTU, BCU = extract_bits(tc)
-        print(f"Rx: {int(Rx)}, BTU: {int(BTU)}, BCU: {int(BCU)}")
-        state, start, load, doit = fsm(state, tc, Rx, BTU, BCU)
-
     print("\n-------- RERUN IN DEBUG PHASE --------")
+    print(f"Starting state: {state_to_string(state)}")
     while True:
         try:
             Rx = bool(int(input("Rx: ")))

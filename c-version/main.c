@@ -76,7 +76,7 @@ void fsm(STATE* state, test_case tc, int* Rx, int* BTU, int* BCU, int* start, in
         *state = COUNT;
     }
     
-    printf("Current state: %s\n", stateToString(*state));
+    printf("Current state: %s\n", stateToString(*state));   
     sleep(1);
 }
 
@@ -93,14 +93,8 @@ int main() {
     int load = 0;
     int doit = 1;
 
-    for (int i = 0; i <= 7; i++) {
-        tc = (test_case)i;
-        extractBits(tc, &Rx, &BTU, &BCU);
-        printf("Rx: %d, BTU: %d, BCU: %d\n", Rx, BTU, BCU);
-        fsm(&state, tc, &Rx, &BTU, &BCU, &start, &load, &doit);
-    }
-
     printf("\n-------- DEBUG PHASE --------\n");
+    printf("Starting state: %s\n", stateToString(state));
     while (1) {
         printf("-------- RERUN IN DEBUG PHASE -------");
         printf("Rx: ");
